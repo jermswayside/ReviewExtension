@@ -1,0 +1,29 @@
+{
+  "name": "Wayside Salesforce Helper",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Derp.",
+  "homepage_url": "http://jameslevasseur.com",
+  "default_locale": "en",
+  "permissions": ["declarativeContent", "storage"],
+  "background": {
+    "scripts": ["src/bg/background.js"],
+    "persistent": false
+  },
+  "page_action": {
+      "default_popup": "src/page_action/page_action.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon19.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://wayside.lightning.force.com/*"],
+      "js": ["js/jquery/jquery.min.js","js/jquery.toolbar.min.js","js/jspdf.min.js","js/codepen.js","js/main.js"],
+      "css": ["css/jquery.toolbar.css","css/main.css"]
+    }
+  ]
+}
